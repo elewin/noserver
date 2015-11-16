@@ -1,0 +1,29 @@
+<div>
+	<p>this is place.html</p>
+	<h1>{{ place.name }} </h1>
+	<h4>{{place.address}} {{place.phone}}</h4>
+	update location info:
+	<form name="updatePlaceForm">
+		<input type="text" ng-model="address" placeholder="address" required/><br>
+		<input type="text" ng-model="phone" placeholder="phone" required/><br>
+		<button ng-disabled="updatePlaceForm.$invalid" ng-click="updatePlace(address, phone)">Update</button>
+	</form>
+</div>
+
+	<h2>best dish: {{place.bestDish}}</h2> <!-- not working -->
+
+	<ul>
+		<li ng-repeat="dish in dishes | orderBy: '-avgScore' ">
+			<a ng-href="#/placeList/{{place.$id}}/{{dish.$id}}">
+
+				{{ dish.name }}</a> {{dish.avgScore}} ({{dish.numReviews}})
+
+		</li>
+	</ul>
+
+	<form name="newDishForm">
+		<input type="text" ng-model="newDishName" placeholder="Name of dish. . ." required/>
+		<button ng-disabled="newDishForm.$invalid" ng-click="createDish(newDishName)">Add dish</button>
+	</form>
+
+</div>

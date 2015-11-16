@@ -1,0 +1,17 @@
+<div>
+	<p>this is dish.html</p>
+	<h1>{{place.name}}/{{ dish.name }}</h1>
+	<div>score: {{dish.avgScore}} ({{dish.numReviews}})</div>
+
+	<ul>
+		<li ng-repeat="review in reviews">{{ review.score }} - {{review.comments}}</li>
+	</ul>
+
+	<form name="newReviewForm">
+		<input type="text" ng-model="newReviewScore" placeholder="Your rating" required/>
+		<input type="text" ng-model="newReviewComments" placeholder="Your Review" required/>
+		<button ng-disabled="newReviewForm.$invalid" ng-click="createReview(newReviewScore, newReviewComments)">Add review</button>
+	</form>
+
+
+</div>
