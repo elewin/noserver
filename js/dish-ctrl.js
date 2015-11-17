@@ -13,7 +13,9 @@ angular.module('reviewer').controller('dishCtrl', function(placeRef, dishesRef, 
 			score: myScore,
       comments: newComments
     });
-
+		//reset fields:
+		$scope.newReviewScore = '';
+		$scope.newReviewComments = '';
 
 		var newAvg = ((dish.totalScore+myScore)/(dish.numReviews+1)); //calculate the new avergae
 		singleDishRef.update({ //update the score for this dish

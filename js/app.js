@@ -30,7 +30,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 				},
 			}
 		})
-		.state('dish', {
+		.state('place.dish', {
 			url: '/placeList/:placeId/:dishId',
 			controller: 'dishCtrl',
 			templateUrl: '/templates/dish.html',

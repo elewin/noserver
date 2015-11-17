@@ -11,6 +11,7 @@ angular.module('reviewer').controller('placeListCtrl', function(placeListRef, $s
 			name: name,
 			address: '',
 			phone: '',
+			photoUrl: '',
 			totalDishes: 0,
 		});
 		$scope.newPlaceName = "";

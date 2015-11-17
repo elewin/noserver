@@ -26,14 +26,12 @@ angular.module('reviewer').service('placeService', function(firebaseUrl, Firebas
 		var results = [];
 		obj.orderByChild("avgScore").limitToLast(num).on("value", function(snapshot) {
 			snapshot.forEach(function(data) {
-			//	console.log(data.key() , data.val());
 				results.push({
 					data: data.val(), //add the data
 					key: data.key(),  //add its own key for linking
 				});
 			});
 		});
-		//console.log('results:',results);
 		return results.reverse(); //reverses the array so the highest rated dish is [0]
 	}
 

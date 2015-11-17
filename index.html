@@ -1,7 +1,33 @@
+<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <title>What Should I Order?</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+  </head>
 	<body ng-app="reviewer">
-		<h1>i am an app</h1>
+		<div class="headerBack">
+			<div class="header">
+				<div id="headerText">
+					What Should I Order?
+				</div>
+				<div id="login">
+					Login
+				</div>
+				<div id="register">
+					Register
+				</div>
+			</div>
+		</div>
+
 		<div class="container" ui-view></div>
+
+
+
+
+
+
 
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular.js"></script>
 		<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
@@ -12,6 +38,5 @@
 		<script type="text/javascript" src="/js/place-ctrl.js"></script>
 		<script type="text/javascript" src="/js/dish-ctrl.js"></script>
 		<script type="text/javascript" src="/js/place-service.js"></script>
-
 	</body>
 </html>

@@ -13,8 +13,8 @@ angular.module('reviewer').controller('placeCtrl', function(placeRef, dishesRef,
 		);
 	}
 
+	var numTopDishes = 3; //get the top 3 dishes
 	var dishesObj= $firebaseObject(dishesRef); //make our object of dishes
-	numTopDishes = 3; //get the top 3 dishes
 	loadTopDishes(dishesObj, numTopDishes); //load the data so we dont start working with undefined values before the server can send it
 
 	dishesRef.on("child_changed", function(snapshot) { //automatically refresh top 3 dishes when there is a change
@@ -38,13 +38,15 @@ angular.module('reviewer').controller('placeCtrl', function(placeRef, dishesRef,
 		$scope.newDishName = ""; //reset the input fields
   };
 
-	$scope.updatePlace = function(address, phone){ //update place details
+	$scope.updatePlace = function(address, phone, photoUrl){ //update place details
 		placeRef.update({
 			address: address,
 			phone: phone,
+			photoUrl: photoUrl,
 		});
 		$scope.address = ""; //reset the input fields
 		$scope.phone = ""; //reset the input fields
+		$scope.photoUrl = '';
 	}
 
 });

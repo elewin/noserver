@@ -1,17 +1,34 @@
+<div class="dishPicBox">
+</div>
 <div>
-	<p>this is dish.html</p>
-	<h1>{{place.name}}/{{ dish.name }}</h1>
-	<div>score: {{dish.avgScore}} ({{dish.numReviews}})</div>
+	<div id="dishTitle">
+		{{ dish.name }}
+	</div>
+	<div id="dishScore">
+		score: {{dish.avgScore}}
+	</div>
+	<div id="numReviews">
+		({{dish.numReviews}})
+	</div>
 
-	<ul>
-		<li ng-repeat="review in reviews">{{ review.score }} - {{review.comments}}</li>
-	</ul>
+	<div id="reviewList">
+		<ul>
+			<li ng-repeat="review in reviews">
+				<div id="reviewScore">
+					{{ review.score }}
+				</div>
+				<div id="reviewComments">
+					{review.comments}}
+				</div>
+			</li>
+		</ul>
+	</div>
 
-	<form name="newReviewForm">
-		<input type="text" ng-model="newReviewScore" placeholder="Your rating" required/>
-		<input type="text" ng-model="newReviewComments" placeholder="Your Review" required/>
-		<button ng-disabled="newReviewForm.$invalid" ng-click="createReview(newReviewScore, newReviewComments)">Add review</button>
-	</form>
-
-
+	<div id="newReviewBox">
+		<form name="newReviewForm">
+			<input type="text" ng-model="newReviewScore" placeholder="Your rating" required/>
+			<input type="text" ng-model="newReviewComments" placeholder="Your Review" required/>
+			<button ng-disabled="newReviewForm.$invalid" ng-click="createReview(newReviewScore, newReviewComments)">Add review</button>
+		</form>
+	</div>
 </div>

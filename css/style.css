@@ -1,0 +1,254 @@
+div
+{
+	border: 0px dotted black;
+}
+
+body
+{
+	border: 0;
+	padding: 0;
+	background-color: #E9E9E9;
+	margin: 0;
+}
+
+ul
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.headerBack
+{
+	background-color: #A1383D;
+	width: 100%;
+	height: 50px;
+}
+
+.header
+{
+	font-family: helvetica;
+	color: #FFFFFF;
+	position: relative;
+	height: 50px;
+	width: 1024px;
+	margin-left: auto;
+	margin-right: auto;
+	min-width: 800px;
+}
+
+#headerText
+{
+	position: absolute;
+	left: 20px;
+	top: 15px;
+}
+
+#login
+{
+	position: absolute;
+	right: 100px;
+	top: 15px;
+}
+
+#register
+{
+	position: absolute;
+	right: 20px;
+	top: 15px;
+}
+
+.container
+{
+	width: 1024px;
+	background-color: #FFFFFF;
+	min-width: 800px;
+	min-height: 800px;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	color: ;
+	font-family: helvetica;
+}
+
+.infoBox
+{
+	height: 150px;
+	width: 250px;
+	background-color: #FFFFFF;
+	border: 2px solid #6E6B6B;
+	position: absolute;
+	top: -75px;
+	left: 25px;
+	box-shadow: 2px 2px 10px grey;
+}
+
+#infoBoxTitle
+{
+	font-size: 25px;
+}
+
+#infoBoxSubtitle
+{
+	font-size: 15px;
+}
+
+.midBox
+{
+	height: 80px;
+}
+
+.bgPicBox
+{
+	width: 100%;
+	height: 300px;
+	background-color: #D3D3D3;
+	overflow: hidden;
+}
+
+
+#bgPic
+{
+}
+
+.topDishes
+{
+	position: absolute;
+	left: 350px;
+	text-align: center;
+	top: 15px;
+	text-decoration: none;
+}
+
+a:link
+{
+	text-decoration: none;
+}
+
+a:visited
+{
+	text-decoration: none;
+	color: inherit;
+}
+
+#topDish
+{
+	font-size: 26px;
+	color: #DE1313;
+	font-weight: bold;
+}
+
+#alsoTryDishes
+{
+	font-style: italic;
+}
+
+.dishList
+{
+	width: 368px;
+	position: absolute;
+	left: 25px;
+	text-align: left;
+	font-family: Verdana;
+	color: #4E4E4E;
+	top: 92px;
+}
+
+.reviewBox
+{
+	width: 613px;
+	position: absolute;
+	right: 10px;
+	top: 92px;
+}
+
+
+
+.mainContentBox
+{
+	position: relative;
+}
+
+.dataContentBox
+{
+}
+
+/*dish view*/
+.dishPicBox{
+
+}
+
+#dishTitle{
+
+}
+
+#dishScore{
+
+}
+
+#numReviews{
+
+}
+
+#reviewList{
+
+}
+
+#reviewScore{
+
+}
+
+#reviewComments{
+
+}
+
+#newReviewBox{
+
+}
+
+/* open/close menus */
+#placeEditMenu
+{
+	position: absolute;
+	right: 3px;
+	top: -5px;
+	cursor: pointer;
+}
+
+#menuButton
+{
+	cursor: pointer;
+}
+
+#placeEditMenuOpen
+{
+	position: absolute;
+	right: -207px;
+	top: 3px;
+	width: 200px;
+	background-color: #FFFFFF;
+	height: 87px;
+	border: 2px solid #6E6B6B;
+	box-shadow: 2px 2px 10px grey;
+}
+
+.collapse
+{
+	font-size: 31px;
+	display: block;
+}
+
+.collapse + input
+{
+	display: none;
+}
+
+.collapse + input + *
+{
+	display: none;
+}
+
+.collapse + input:checked + *
+{
+	display: block;
+}
