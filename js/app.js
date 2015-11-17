@@ -27,7 +27,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 				},
 				dishesRef: function(placeService, $stateParams) {
 					return placeService.getDishes($stateParams.placeId);
-				}
+				},
 			}
 		})
 		.state('dish', {

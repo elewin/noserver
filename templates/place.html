@@ -10,7 +10,10 @@
 	</form>
 </div>
 
-	<h2>best dish: {{place.bestDish}}</h2> <!-- not working -->
+	<h2>
+		best dish: <a ng-href="#/placeList/{{place.$id}}/{{topDishArr[0].key}}">{{topDishArr[0].data.name}}</a> <!-- old way: <div ng-repeat="bestDish in bestDish">{{bestDish.name}}</div> -->
+	</h2>
+	<h4>Also popular: <a ng-href="#/placeList/{{place.$id}}/{{topDishArr[1].key}}">{{topDishArr[1].data.name}}</a>, <a ng-href="#/placeList/{{place.$id}}/{{topDishArr[2].key}}">{{topDishArr[2].data.name}}</a>
 
 	<ul>
 		<li ng-repeat="dish in dishes | orderBy: '-avgScore' ">

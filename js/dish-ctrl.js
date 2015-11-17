@@ -14,11 +14,13 @@ angular.module('reviewer').controller('dishCtrl', function(placeRef, dishesRef, 
       comments: newComments
     });
 
+
 		var newAvg = ((dish.totalScore+myScore)/(dish.numReviews+1)); //calculate the new avergae
 		singleDishRef.update({ //update the score for this dish
 			totalScore: dish.totalScore+myScore,
 			numReviews: dish.numReviews+1,
 			avgScore: newAvg,
 		});
+	//	singleDishRef.setPriority((1-newAvg));
   };
 });
