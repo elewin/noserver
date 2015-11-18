@@ -6,11 +6,30 @@ angular.module('reviewer').controller('placeCtrl', function(placeRef, dishesRef,
 	loadTopDishes = function(obj, num){ //make sure data is loaded before trying to put it on $scope, num is number of top dishes to get
 		obj.$loaded(function(data){
 			$scope.topDishArr = placeService.getTopDishesArr(dishesRef, num);
-			},
-			function(error){
-				console.error("error:", error); //uh oh
+
+			//while the top dishes are loaded, set the properties for the best dish for this place so it can be displayed along side the place on the palceList:
+			var bestDishRef = placeRef.child("bestDish");
+
+			// make sure we have at least 1 dish
+			if (place.totalDishes > 0){
+				bestDishRef.set({
+					name: $scope.topDishArr[0].data.name,
+					avgScorePct: $scope.topDishArr[0].data.avgScorePct,
+					ratingColor: $scope.topDishArr[0].data.ratingColor,
+					avgScore: $scope.topDishArr[0].data.avgScore,
+				});
+			}else{ //set the best dish to empty if we dont have any dishes
+				bestDishRef.set({
+					name: 'None',
+					avgScorePct: 0,
+					ratingColor: '#ffffff',
+					avgScore: 0,
+				});
 			}
-		);
+		},
+		function(error){
+			console.error("error:", error); //uh oh :(
+		});
 	}
 
 	var numTopDishes = 3; //get the top 3 dishes
@@ -25,7 +44,6 @@ angular.module('reviewer').controller('placeCtrl', function(placeRef, dishesRef,
 
 	$scope.dishes = $firebaseArray(dishesRef);
 
-
   $scope.createDish = function(dish) {
     $scope.dishes.$add({
       name: dish,
@@ -33,8 +51,11 @@ angular.module('reviewer').controller('placeCtrl', function(placeRef, dishesRef,
 			avgScore: 0,
 			avgScorePct: 0,
 			numReviews: 0,
+			roundedScore: 0,
+			ratingColor: '',
     });
-		console.log('thing:',this.$id, this.name);
+
+		//update the place:
 		placeRef.update( {totalDishes: place.totalDishes+1} ); //add another dish to the total
 		$scope.newDishName = ""; //reset the input fields
   };

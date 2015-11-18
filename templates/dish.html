@@ -5,13 +5,13 @@
 		{{ dish.name }}
 	</div>
 	<div id="dishScorePct">
-		<div id="dishScorePctFill" style="width:{{dish.avgScorePct}}%">
+		<div id="dishScorePctFill" style="width:{{dish.avgScorePct}}%; background-color: {{dish.ratingColor}};">
 			<img id="dishScorePctImg" src="img/empty5star256.png" />
 		</div>
 
 	</div>
 	<div id="dishScore">
-		score: {{dish.avgScore}}
+		{{dish.displayScore}}/5
 	</div>
 	<div id="numReviews">
 		({{dish.numReviews}})
@@ -19,11 +19,23 @@
 	<div id="reviewList">
 		<ul>
 			<li ng-repeat="review in reviews">
-				<div id="reviewScore">
-					{{ review.score }}
-				</div>
-				<div id="reviewComments">
-					{{review.comments}}
+				<div id="review">
+					<div id="reviewHeader">
+						<div id="reviewUserName">
+							{{review.user.name}}
+						</div>
+						<div id="reviewScore">
+							{{ review.score }}/5
+						</div>
+						<div id="reviewStarsBox">
+							<div id="reviewStars" style="width:{{review.scorePct}}%; background-color: {{review.ratingColor}};">
+									<img id="reviewStarsImg" src="img/empty5star-noborder256.png" />
+							</div>
+						</div>
+					</div>
+					<div id="reviewComments">
+						{{review.comments}}
+					</div>
 				</div>
 			</li>
 		</ul>

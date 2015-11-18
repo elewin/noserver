@@ -1,19 +1,32 @@
-<div>
-	<p>this is placeList.html</p>
-
-	<ul>
-		<li ng-repeat="place in placeList | orderBy: '+name'">
-			<!-- <a ng-href="#/placeList/{{place.$id}}"> -->
-			<a	ui-sref="place({placeId:place.$id})">
-				<span>{{ place.name }} ({{place.totalDishes}})</span>
-			</a>
-		</li>
-	</ul>
-
-	<form name="newPlaceForm">
-		<input type="text" ng-model="newPlaceName" placeholder="New place name..." required/>
-		<button ng-disabled="newPlaceForm.$invalid" ng-click="createPlace(newPlaceName)">Add place</button>
-	</form>
+<div class="bgPicBoxMain">
 
 
+		<span id="mainBoxText">
+			What Should I Order?
+		</span>
+
+
+	</div>
+</div>
+<div class="mainContentBox">
+	<div id="sideBar">
+
+
+
+		<!-- list places: -->
+		<ul>
+			<li ng-repeat="place in placeList | orderBy: '+name'">
+				<a	ui-sref="place({placeId:place.$id})">
+					<span>{{ place.name }} ({{place.totalDishes}})</span>
+				</a>
+			</li>
+		</ul>
+
+		<!-- enter new place form: -->
+		<form name="newPlaceForm">
+			<input type="text" ng-model="newPlaceName" placeholder="New place name..." required/>
+			<button ng-disabled="newPlaceForm.$invalid" ng-click="createPlace(newPlaceName)">Add place</button>
+		</form>
+
+	</div>
 </div>
