@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>What Should I Order?</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+  </head>
+	<body ng-app="reviewer">
+		<div class="headerBack">
+			<div class="header">
+				<div id="headerText">
+					What Should I Order?
+				</div>
+				<div id="login">
+					Login
+				</div>
+				<div id="register">
+					Register
+				</div>
+			</div>
+		</div>
+
+		<div class="container" ui-view>
+	<!-- START PLACE------------------------------------>
+
+
+			<div class="bgPicBox">
+				<img id="bgPic" src="{{place.photoUrl}}" />
+			</div>
+			<div class="mainContentBox">
+				<div class="midBox">
+					<div class="infoBox">
+						<div id="infoBoxTitle">
+							{{ place.name }}
+						</div>
+						<div id="infoBoxSubtitle">
+							<div>
+								{{place.address}}
+							</div>
+							<div>
+								{{place.phone}}
+							</div>
+						</div>
+						<div id="placeEditMenu">
+							<label class="collapse" for="_1" id="menuButton">
+								+
+							</label>
+							<input id="_1" type="checkbox">
+								<div id="placeEditMenuOpen">
+									<form name="updatePlaceForm">
+										<input type="text" ng-model="address" placeholder="address" required/><br>
+										<input type="text" ng-model="phone" placeholder="phone" required/><br>
+										<input type="text" ng-model="photoUrl" placeholder="photoUrl"><br>
+										<button ng-disabled="updatePlaceForm.$invalid" ng-click="updatePlace(address, phone, photoUrl)">Update</button>
+									</form>
+								</div>
+						</div>
+					</div>
+					<div class="topDishes">
+						<div id="topDish">
+							Best dish: <a ui-sref=".dish({placeId:place.$id, dishId:topDishArr[0].key})" > {{topDishArr[0].data.name}} </a>
+						</div>
+						<div id="alsoTryDishes">
+							Also popular: <a ui-sref=".dish({placeId:place.$id, dishId:topDishArr[1].key})">{{topDishArr[1].data.name}}</a>, <a ui-sref=".dish({placeId:place.$id, dishId:topDishArr[2].key})">{{topDishArr[2].data.name}}</a>
+						</div>
+					</div>
+				</div>
+				<div class="dataContentBox">
+					<div class="dishList">
+						<ul>
+							<li ng-repeat="dish in dishes | orderBy: '-avgScore' ">
+								<a ui-sref=".dish({placeId:place.$id, dishId:dish.$id})">
+									<div id="dishListName">
+										{{ dish.name }}
+									</div>
+								</a>
+
+								<div id="dishListScorePct">
+									<div id="dishListScorePctFill" style="width:{{dish.avgScorePct}}%">
+										<img id="dishListScorePctImg" src="img/empty5star256.png" />
+									</div>
+								</div>
+
+									{{dish.avgScore}} ({{dish.numReviews}})
+
+							</li>
+						</ul>
+						<div class="newDishBox">
+								<form name="newDishForm">
+									<input type="text" ng-model="newDishName" placeholder="Name of dish. . ." required/>
+									<button ng-disabled="newDishForm.$invalid" ng-click="createDish(newDishName)">Add dish</button>
+								</form>
+						</div>
+					</div>
+					<div ui-view class="reviewBox">
+						<!-- START DISH ----------------------------------->
+
+						<div class="dishPicBox">
+						</div>
+						<div>
+							<div id="dishTitle">
+								{{ dish.name }}
+							</div>
+							<div id="dishScorePct">
+								<div id="dishScorePctFill" style="width:{{dish.avgScorePct}}%">
+									<img id="dishScorePctImg" src="img/empty5star256.png" />
+								</div>
+
+							</div>
+							<div id="dishScore">
+								score: {{dish.avgScore}}
+							</div>
+							<div id="numReviews">
+								({{dish.numReviews}})
+							</div>
+							<div id="reviewList">
+								<ul>
+									<li ng-repeat="review in reviews">
+										<div id="reviewScore">
+											{{ review.score }}
+										</div>
+										<div id="reviewComments">
+											{{review.comments}}
+										</div>
+									</li>
+								</ul>
+							</div>
+
+							<div id="newReviewBox">
+								<form name="newReviewForm">
+									<input type="text" ng-model="newReviewScore" placeholder="Your rating" required/>
+									<input type="text" ng-model="newReviewComments" placeholder="Your Review" required/>
+									<button ng-disabled="newReviewForm.$invalid" ng-click="createReview(newReviewScore, newReviewComments)">Add review</button>
+								</form>
+							</div>
+						</div>
+
+
+
+						<!-- END DISH -------------------------------------->
+					</div>
+
+				</div>
+			</div>
+
+			<!--  END PLACE -------------------->
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular.js"></script>
+		<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+		<script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+		<script type="text/javascript" src="/js/app.js"></script>
+		<script type="text/javascript" src="/js/placeList-ctrl.js"></script>
+		<script type="text/javascript" src="/js/place-ctrl.js"></script>
+		<script type="text/javascript" src="/js/dish-ctrl.js"></script>
+		<script type="text/javascript" src="/js/place-service.js"></script>
+	</body>
+</html>

@@ -31,6 +31,7 @@ angular.module('reviewer').controller('placeCtrl', function(placeRef, dishesRef,
       name: dish,
 			totalScore: 0,
 			avgScore: 0,
+			avgScorePct: 0,
 			numReviews: 0,
     });
 		console.log('thing:',this.$id, this.name);

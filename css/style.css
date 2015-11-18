@@ -42,6 +42,8 @@ ul
 	position: absolute;
 	left: 20px;
 	top: 15px;
+	font-size: 22px;
+	top: 11px;
 }
 
 #login
@@ -104,8 +106,8 @@ ul
 	height: 300px;
 	background-color: #D3D3D3;
 	overflow: hidden;
+	background-image: url(../img/bgplaceholder.jpg);
 }
-
 
 #bgPic
 {
@@ -118,17 +120,19 @@ ul
 	text-align: center;
 	top: 15px;
 	text-decoration: none;
+	right: 80px;
 }
 
 a:link
 {
 	text-decoration: none;
+	color: #487DC1;
 }
 
 a:visited
 {
 	text-decoration: none;
-	color: inherit;
+	color: #487DC1;
 }
 
 #topDish
@@ -152,6 +156,7 @@ a:visited
 	font-family: Verdana;
 	color: #4E4E4E;
 	top: 92px;
+	font-size: 15px;
 }
 
 .reviewBox
@@ -161,8 +166,6 @@ a:visited
 	right: 10px;
 	top: 92px;
 }
-
-
 
 .mainContentBox
 {
@@ -174,36 +177,84 @@ a:visited
 }
 
 /*dish view*/
-.dishPicBox{
-
+.dishPicBox
+{
 }
 
-#dishTitle{
-
+#dishTitle
+{
+	font-size: 37px;
 }
 
-#dishScore{
-
+#dishScore
+{
+	display: inline-block;
 }
 
-#numReviews{
-
+#dishScorePct
+{
+	width: 200px;
+	display: inline-block;
 }
 
-#reviewList{
-
+#dishScorePctFill
+{
+	background-color: yellow;
+	height: 36px;
 }
 
-#reviewScore{
-
+#dishScorePctImg
+{
+	width: 200px;
 }
 
-#reviewComments{
-
+#dishListName{
+  display: inline-block;
 }
 
-#newReviewBox{
+#dishListScorePct{
+  width: 100px;
+  display: inline-block;
+}
 
+#dishListScore{
+  display: inline-block;
+}
+
+#dishListNumReviews{
+  display: inline-block;
+  font-style: italic;
+  font-size: 12px;
+}
+
+#dishListScorePctFill{
+  background-color: yellow;
+  height: 18px;
+}
+
+#dishListScorePctImg{
+  width: 100px;
+}
+
+#numReviews
+{
+	display: inline-block;
+}
+
+#reviewList
+{
+}
+
+#reviewScore
+{
+}
+
+#reviewComments
+{
+}
+
+#newReviewBox
+{
 }
 
 /* open/close menus */

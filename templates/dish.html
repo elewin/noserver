@@ -4,13 +4,18 @@
 	<div id="dishTitle">
 		{{ dish.name }}
 	</div>
+	<div id="dishScorePct">
+		<div id="dishScorePctFill" style="width:{{dish.avgScorePct}}%">
+			<img id="dishScorePctImg" src="img/empty5star256.png" />
+		</div>
+
+	</div>
 	<div id="dishScore">
 		score: {{dish.avgScore}}
 	</div>
 	<div id="numReviews">
 		({{dish.numReviews}})
 	</div>
-
 	<div id="reviewList">
 		<ul>
 			<li ng-repeat="review in reviews">
@@ -18,7 +23,7 @@
 					{{ review.score }}
 				</div>
 				<div id="reviewComments">
-					{review.comments}}
+					{{review.comments}}
 				</div>
 			</li>
 		</ul>

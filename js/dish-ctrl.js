@@ -18,10 +18,12 @@ angular.module('reviewer').controller('dishCtrl', function(placeRef, dishesRef, 
 		$scope.newReviewComments = '';
 
 		var newAvg = ((dish.totalScore+myScore)/(dish.numReviews+1)); //calculate the new avergae
+		var newAvgPct = ((newAvg / 5) *100); // percentage of a 5 star review
 		singleDishRef.update({ //update the score for this dish
 			totalScore: dish.totalScore+myScore,
 			numReviews: dish.numReviews+1,
 			avgScore: newAvg,
+			avgScorePct: newAvgPct,
 		});
 	//	singleDishRef.setPriority((1-newAvg));
   };

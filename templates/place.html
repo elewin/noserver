@@ -44,9 +44,23 @@
 			<ul>
 				<li ng-repeat="dish in dishes | orderBy: '-avgScore' ">
 					<a ui-sref=".dish({placeId:place.$id, dishId:dish.$id})">
-						{{ dish.name }}
+						<div id="dishListName">
+							{{ dish.name }}
+						</div>
 					</a>
-					{{dish.avgScore}} ({{dish.numReviews}})
+					<div id="dishListScore">
+						{{dish.avgScore}}
+					</div>
+					<div id="dishListNumReviews">
+						({{dish.numReviews}})
+					</div>
+					<div id="dishListScorePct">
+						<div id="dishListScorePctFill" style="width:{{dish.avgScorePct}}%">
+							<img id="dishListScorePctImg" src="img/empty5star-noborder256.png" />
+						</div>
+					</div>
+
+
 
 				</li>
 			</ul>
