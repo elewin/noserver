@@ -1,15 +1,22 @@
 /////
 to-do:
-make best dish on place-ctrl/place.html work
- - get random comment from best dish to display with it on place.html, picture too?
-add genre support / sort by genre?
-dish picture support
-mouse click to rate/star system
-options to sort by highest score, most reviewed, etc
-stylize with css, not make it look like crap
-implement place photos, display on place.html?
+
+front page
+input stars
+dish pictures
+style infoBox
+figure out why page length wont go down
+auth
+when there is no top dish, either hide it or give it a default value of some kind to display instead of having it be blank
+
+//cool ideas for later:
+bg area drops down animated when going from front page to place page, site logo on infobox transitions to place info
 display or cycle through photos of highest rated dish on place page
 user auth
 google maps integration????
 admin/mod stuff
 display random top rated dishes on main page
+add genre support / sort by genre?
+search
+options to sort by highest score, most reviewed, etc
+get random comment from best dish to display with it on place.html, picture too?

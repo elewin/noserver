@@ -1,32 +1,84 @@
 <div class="bgPicBoxMain">
-
-
-		<span id="mainBoxText">
-			What Should I Order?
-		</span>
-
-
-	</div>
+	<span id="mainBoxText">
+		What Should I Order?
+	</span>
 </div>
-<div class="mainContentBox">
-	<div id="sideBar">
+
+	<div class="mainContentBox">
+		<div id="sideBarPlaceList">
+		<div class="midBox">
+			<!-- <div class="infoBox">
+
+			</div> -->
+
+			<div class="latestReviewBox">
+				<div id="latestReview">
+					Latest review:
+				</div>
+
+			</div>
+		</div>
+		<div class="dataContentBox">
+
+		</div>
+
+				<div class="placeBox">
+
+					<ul>
+						<li ng-repeat="place in placeList | orderBy: '+name'">
+
+						<div>
+
+							<div id="placeListBox">
+
+
+										<div id="place">
+											<div id="placeHeader">
+												<div id="placeTitle">
+													<div id="placeInfo">
+														<a	ui-sref="place({placeId:place.$id})">
+															{{ place.name }}
+														</a>
+														<div id="placeTitleAddress">
+															{{place.address}}
+														</div>
+														<div id="placeTitlePhone">
+															{{place.phone}}
+														</div>
+													</div>
+												</div>
+												<div id="placeStats">
+													{{place.totalDishes}} dishes
+
+													({{place.totalReviews}}) reviews
+												</div>
+											</div>
+											<div id="placeDetails">
+											Try: {{place.bestDish.name}}
+											<div id="placeListReviewStarsBox">
+												<div id="reviewStars" style="width:{{place.bestDish.scorePct}}%; background-color: {{place.bestDish.ratingColor}};">
+														<img id="reviewStarsImg" src="img/empty5star-noborder256.png" />
+												</div>
+											</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+
+									<div id="newPlaceBox">
+										<form name="newPlaceForm">
+											<input type="text" ng-model="newPlaceName" placeholder="New place name..." required/>
+											<button ng-disabled="newPlaceForm.$invalid" ng-click="createPlace(newPlaceName)">Add place</button>
+										</form>
+									</div>
+
+							</div>
+
+
+						</div>
 
 
 
-		<!-- list places: -->
-		<ul>
-			<li ng-repeat="place in placeList | orderBy: '+name'">
-				<a	ui-sref="place({placeId:place.$id})">
-					<span>{{ place.name }} ({{place.totalDishes}})</span>
-				</a>
-			</li>
-		</ul>
-
-		<!-- enter new place form: -->
-		<form name="newPlaceForm">
-			<input type="text" ng-model="newPlaceName" placeholder="New place name..." required/>
-			<button ng-disabled="newPlaceForm.$invalid" ng-click="createPlace(newPlaceName)">Add place</button>
-		</form>
-
-	</div>
-</div>
+					</div>
+				</div>
+				</div>

@@ -33,7 +33,8 @@ angular.module('reviewer').controller('dishCtrl', function(placeRef, dishesRef, 
 		var newAvgPct = ((newAvg / 5) *100); // percentage of a 5 star review
 		var newRatingColor = placeService.colorYtoR(newAvgPct); //calculate the new color of the stars based on the pct score, from yellow to red
 
-		singleDishRef.update({ //update the score for this dish
+		//update the score for this dish:
+		singleDishRef.update({
 			totalScore: dish.totalScore+myScore,
 			numReviews: dish.numReviews+1, //we have to do +1 (and +myScore above) here because if we update dish.numReviews elsewhere and then try to assign dish.numReviews here it wont get the updated value back from the server before it runs this part of the code and we'll just get the old value, so we go ahead and just add it here manually
 			displayScore: +newAvg.toFixed(2), //truncates uncessary zeros
@@ -41,5 +42,11 @@ angular.module('reviewer').controller('dishCtrl', function(placeRef, dishesRef, 
 			avgScorePct: newAvgPct,
 			ratingColor: newRatingColor,
 		});
+
+		//update the place:
+		console.log(place.totalReviews);
+		placeRef.update({
+			totalReviews: place.totalReviews+1,
+		})
   };
 });

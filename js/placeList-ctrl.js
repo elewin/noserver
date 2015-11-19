@@ -3,7 +3,8 @@ angular.module('reviewer').controller('placeListCtrl', function(placeListRef, $s
 
 	$scope.placeList = $firebaseArray(placeListRef);
 
-	$scope.placeList.$loaded().then(function(placeList) { //what does this do??
+
+	$scope.placeList.$loaded().then(function(placeList) { //load the list
 	});
 
 	$scope.createPlace = function(name) { //add a new object, and initialize its keys
@@ -13,6 +14,8 @@ angular.module('reviewer').controller('placeListCtrl', function(placeListRef, $s
 			phone: '',
 			photoUrl: '',
 			totalDishes: 0,
+		  totalReviews: 0,
+			genre: '',
 		});
 		$scope.newPlaceName = "";
 	};

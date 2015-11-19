@@ -1,8 +1,7 @@
 angular.module('reviewer').controller('placeCtrl', function(placeRef, dishesRef, $scope, $firebaseObject, $firebaseArray, placeService, $stateParams) {
 	var place = $firebaseObject(placeRef);
- 	//var bestDish = placeService.getTopDishesObj(dishesRef, 1); //get top 1 dish
-	//$scope.bestDish =  bestDish;
 
+	//need to put this on service, but its broken there for now :(
 	loadTopDishes = function(obj, num){ //make sure data is loaded before trying to put it on $scope, num is number of top dishes to get
 		obj.$loaded(function(data){
 			$scope.topDishArr = placeService.getTopDishesArr(dishesRef, num);
@@ -25,6 +24,7 @@ angular.module('reviewer').controller('placeCtrl', function(placeRef, dishesRef,
 					ratingColor: '#ffffff',
 					avgScore: 0,
 				});
+			//	$scope.topDishArr[1].data.name = 'Empty';
 			}
 		},
 		function(error){
@@ -34,15 +34,15 @@ angular.module('reviewer').controller('placeCtrl', function(placeRef, dishesRef,
 
 	var numTopDishes = 3; //get the top 3 dishes
 	var dishesObj= $firebaseObject(dishesRef); //make our object of dishes
-	loadTopDishes(dishesObj, numTopDishes); //load the data so we dont start working with undefined values before the server can send it
+	$scope.topDishArr = loadTopDishes(dishesObj, numTopDishes); //load the data so we dont start working with undefined values before the server can send it
 
 	dishesRef.on("child_changed", function(snapshot) { //automatically refresh top 3 dishes when there is a change
-		loadTopDishes(dishesObj, numTopDishes);
+		$scope.topDishArr = loadTopDishes(dishesObj,  numTopDishes);
 	});
-
 	place.$bindTo($scope, 'place');
 
 	$scope.dishes = $firebaseArray(dishesRef);
+
 
   $scope.createDish = function(dish) {
     $scope.dishes.$add({

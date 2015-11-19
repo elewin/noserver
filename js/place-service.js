@@ -35,14 +35,64 @@ angular.module('reviewer').service('placeService', function(firebaseUrl, Firebas
 		return results.reverse(); //reverses the array so the highest rated dish is [0]
 	};
 
+	/////////this is broken, moving to controller for now :(
+	// this.loadTopDishes = function(obj, num, dishRef, placeRef, place){ //make sure data is loaded before trying to put it on $scope, num is number of top dishes to get
+	// 	var results = []; //placeService.getTopDishesArr(dishesRef, num);
+	// 	obj.$loaded(function(data){
+	//
+	// 		dishRef.orderByChild("avgScore").limitToLast(num).on("value", function(snapshot) {
+	// 			snapshot.forEach(function(data) {
+	// 				results.push({
+	// 					data: data.val(), //add the data
+	// 					key: data.key(),  //add its own key for linking
+	// 				});
+	// 			});
+	// 		});
+	//
+	// 		//while the top dishes are loaded, set the properties for the best dish for this place so it can be displayed along side the place on the palceList:
+	// 		var bestDishRef = placeRef.child("bestDish");
+	//
+	// 		// make sure we have at least 1 dish
+	// 		if (place.totalDishes > 0){
+	// 			bestDishRef.set({
+	// 				name: results[0].data.name,
+	// 				avgScorePct: results[0].data.avgScorePct,
+	// 				ratingColor: results[0].data.ratingColor,
+	// 				avgScore: results[0].data.avgScore,
+	// 			});
+	// 		}else{ //set the best dish to empty if we dont have any dishes
+	// 			bestDishRef.set({
+	// 				name: 'None',
+	// 				avgScorePct: 0,
+	// 				ratingColor: '#ffffff',
+	// 				avgScore: 0,
+	// 			});
+	// 		 }
+	// 	},
+	// 	function(error){
+	// 		console.error("error:", error); //uh oh :(
+	// 	});
+	// 	console.log("service");
+	// 	return results.reverse(); //reverses the array so the highest rated dish is [0]
+	// }
+
+
 	this.colorYtoR = function(pct){ //return a color ranging from yellow to red based on a percent given 0-100
+		var reverse = false; //set this to true to go from red to yellow instead
+
+		//this will determine what direction in colors we go from low score to high
+		var dir = 100;
+		if (reverse){
+			dir = 0;
+		}
+
 		var r = 'ff'; //we dont change red, it stays at #ff
 		var g = 0;
 		var b = '00'; //we dont change blue, it stays at #00
 
-		g = Math.round(((100-pct)/100)*255).toString(16); //convert the green value to hex
+		g = Math.round(((dir-pct)/100)*255).toString(16); //convert the green value to hex
 		if (g === '0'){g = '00';} //set 0 to 00
-		var htmlColorCode = '#'+r+g+b; //put html color together
+		var htmlColorCode = '#'+r+g+b; //put html color code together
 		return htmlColorCode;
 	};
 

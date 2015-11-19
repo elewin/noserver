@@ -27,7 +27,7 @@
 							<form name="updatePlaceForm">
 								<input type="text" ng-model="address" placeholder="address" required/><br>
 								<input type="text" ng-model="phone" placeholder="phone" required/><br>
-								<input type="text" ng-model="photoUrl" placeholder="photoUrl"><br>
+								<input type="text" ng-model="photoUrl" placeholder="photoUrl" required/><br>
 								<button ng-disabled="updatePlaceForm.$invalid" ng-click="updatePlace(address, phone, photoUrl)">Update</button>
 							</form>
 						</div>
