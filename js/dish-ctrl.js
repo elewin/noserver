@@ -48,17 +48,17 @@ angular.module('reviewer').controller('dishCtrl', function(placeListRef, placeRe
 			totalReviews: place.totalReviews+1,
 		});
 
-		placeListRef.update({
-			latestReview: {
-				user: tempUser, //////////////change once users are implemented
-				place: place.name,
-				dish: dish.name,
-				scorePct: newAvgPct,
-				ratingColor: newRatingColor,
-				comments: newComments,
-				score: myScore,
-			},
-		});
+		// placeListRef.update({
+		// 	latestReview: {
+		// 		user: tempUser, //////////////change once users are implemented
+		// 		place: place.name,
+		// 		dish: dish.name,
+		// 		scorePct: newAvgPct,
+		// 		ratingColor: newRatingColor,
+		// 		comments: newComments,
+		// 		score: myScore,
+		// 	},
+		// });
 
   };
 });
