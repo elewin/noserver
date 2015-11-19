@@ -14,8 +14,8 @@
 			<!-- <div class="latestReviewBox">
 				<div id="latestReview">
 					Latest review: {{latestReview.dish}}
-			</div>
-		</div> -->
+			</div> -->
+		</div>
 		<div class="dataContentBox">
 
 		</div>
@@ -52,7 +52,7 @@
 												</div>
 											</div>
 											<div id="placeDetails">
-												<a	ui-sref="place({placeId:place.$id})">{{place.bestDish.scorePct}}</a>
+												<a	ui-sref="place({placeId:place.$id})">{{place.bestDish.name}}</a>
 											<div id="placeListReviewStarsBox">
 												<div id="reviewStars" style="width:{{place.bestDish.scorePct}}%; background-color: {{place.bestDish.ratingColor}};">
 														<img id="reviewStarsImg" src="img/empty5star-noborder256.png" />
