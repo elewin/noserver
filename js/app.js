@@ -14,6 +14,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			resolve: {
 				placeListRef: function(placeService) {
 					return placeService.getPlaces();
+				},
+				latestReviewRef: function(placeService){					
+					return placeService.getLatestReview();
 				}
 			}
 		})
@@ -28,6 +31,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 				dishesRef: function(placeService, $stateParams) {
 					return placeService.getDishes($stateParams.placeId);
 				},
+				placeListRef: function(placeService) {
+					return placeService.getPlaces();
+				}
 			}
 		})
 		.state('place.dish', {
@@ -47,6 +53,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 				singleDishRef: function(placeService, $stateParams) {
 					return placeService.getDishData($stateParams.placeId, $stateParams.dishId);
 				},
+				placeListRef: function(placeService) {
+					return placeService.getPlaces();
+				}
 			}
 		})
 

@@ -1,4 +1,4 @@
-angular.module('reviewer').controller('dishCtrl', function(placeRef, dishesRef, singleDishRef, reviewsRef, $scope, $firebaseObject, $firebaseArray, placeService) {
+angular.module('reviewer').controller('dishCtrl', function(placeListRef, placeRef, dishesRef, singleDishRef, reviewsRef, $scope, $firebaseObject, $firebaseArray, placeService) {
 	var place = $firebaseObject(placeRef);
 	var dish = $firebaseObject(singleDishRef);
 
@@ -44,9 +44,21 @@ angular.module('reviewer').controller('dishCtrl', function(placeRef, dishesRef, 
 		});
 
 		//update the place:
-		console.log(place.totalReviews);
 		placeRef.update({
 			totalReviews: place.totalReviews+1,
-		})
+		});
+
+		placeListRef.update({
+			latestReview: {
+				user: tempUser, //////////////change once users are implemented
+				place: place.name,
+				dish: dish.name,
+				scorePct: newAvgPct,
+				ratingColor: newRatingColor,
+				comments: newComments,
+				score: myScore,
+			},
+		});
+
   };
 });

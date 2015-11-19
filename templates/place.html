@@ -15,6 +15,9 @@
 						{{place.address}}
 					</div>
 					<div>
+						{{place.city}}
+					</div>
+					<div>
 						{{place.phone}}
 					</div>
 				</div>
@@ -26,10 +29,13 @@
 						<div id="placeEditMenuOpen">
 							<form name="updatePlaceForm">
 								<input type="text" ng-model="address" placeholder="address" required/><br>
-								<input type="text" ng-model="phone" placeholder="phone" required/><br>
-								<input type="text" ng-model="photoUrl" placeholder="photoUrl" required/><br>
-								<button ng-disabled="updatePlaceForm.$invalid" ng-click="updatePlace(address, phone, photoUrl)">Update</button>
+								<input type="text" ng-model="city" placeholder="city" required/><br>
+								<input type="text" ng-model="phone" placeholder="phone" required/>
+								<button ng-disabled="updatePlaceForm.$invalid" ng-click="updatePlace(address, city, phone)">Update</button>
 							</form>
+							<form name="addPhotoUrl">
+								<input type="text" ng-model="photoUrl" placeholder="photoUrl" required/>
+							<button ng-disabled="addPhotoUrl.$invalid" ng-click="updatePhotoUrl(photoUrl)">Update</button>
 						</div>
 				</div>
 			</div>

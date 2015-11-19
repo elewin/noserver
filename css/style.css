@@ -122,13 +122,13 @@ ul {
 }
 
 .infoBox {
-	height: 150px;
+	height: 120px;
 	width: 250px;
 	color: #FFFFFF;
 	border: 2px solid #6E6B6B;
 	position: absolute;
-	top: -75px;
-	left: 25px;
+	top: -66px;
+	left: 42px;
 	box-shadow: 2px 2px 10px grey;
 	background: rgb(0, 0, 0);
 	/* fallback color */
@@ -136,11 +136,13 @@ ul {
 }
 
 #infoBoxTitle {
-	font-size: 25px;
+	font-size: 29px;
 }
 
 #infoBoxSubtitle {
-	font-size: 15px;
+	font-size: 18px;
+	position: absolute;
+	bottom: 3px;
 }
 
 .midBox {
@@ -220,6 +222,10 @@ a:link {
 a:visited {
 	text-decoration: none;
 	color: #487DC1;
+}
+
+#commmentBox{
+
 }
 
 #topDish {
@@ -500,13 +506,16 @@ a:visited {
 
 #placeEditMenuOpen {
 	position: absolute;
-	right: -207px;
-	top: 3px;
-	width: 200px;
-	background-color: #FFFFFF;
+	right: -230px;
+	top: -42px;
+	width: 223px;
 	height: 87px;
+	color: #FFFFFF;
 	border: 2px solid #6E6B6B;
 	box-shadow: 2px 2px 10px grey;
+	background: rgb(0, 0, 0);
+	/* fallback color */
+	background: rgba(0, 0, 0, 0.7);
 }
 
 .collapse {
@@ -524,4 +533,34 @@ a:visited {
 
 .collapse + input:checked + * {
 	display: block;
+}
+
+/* star rating */
+.rating {
+    overflow: hidden;
+    display: inline-block;
+    font-size: 0;
+    position: relative;
+}
+.rating-input {
+    float: right;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    margin: 0 0 0 -16px;
+    opacity: 0;
+}
+.rating:hover .rating-star:hover,
+.rating:hover .rating-star:hover ~ .rating-star,
+.rating-input:checked ~ .rating-star {
+    background-position: 0 0;
+}
+.rating-star,
+.rating:hover .rating-star {
+    position: relative;
+    float: right;
+    display: block;
+    width: 51px;
+    height: 48px;
+    background: url('../img/stars.png') 0 -48px;
 }

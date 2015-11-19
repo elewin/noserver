@@ -1,4 +1,4 @@
-angular.module('reviewer').controller('placeCtrl', function(placeRef, dishesRef, $scope, $firebaseObject, $firebaseArray, placeService, $stateParams) {
+angular.module('reviewer').controller('placeCtrl', function(placeRef, dishesRef, $scope, $firebaseObject, $firebaseArray, placeService, $stateParams, placeListRef) {
 	var place = $firebaseObject(placeRef);
 
 	//need to put this on service, but its broken there for now :(
@@ -19,7 +19,7 @@ angular.module('reviewer').controller('placeCtrl', function(placeRef, dishesRef,
 				});
 			}else{ //set the best dish to empty if we dont have any dishes
 				bestDishRef.set({
-					name: 'None',
+					name: 'Add a review!',
 					avgScorePct: 0,
 					ratingColor: '#ffffff',
 					avgScore: 0,
@@ -60,15 +60,21 @@ angular.module('reviewer').controller('placeCtrl', function(placeRef, dishesRef,
 		$scope.newDishName = ""; //reset the input fields
   };
 
-	$scope.updatePlace = function(address, phone, photoUrl){ //update place details
+	$scope.updatePlace = function(address, city, phone){ //update place details
 		placeRef.update({
 			address: address,
+			city: city,
 			phone: phone,
-			photoUrl: photoUrl,
 		});
 		$scope.address = ""; //reset the input fields
+		$scope.city = ""; //reset the input fields
 		$scope.phone = ""; //reset the input fields
-		$scope.photoUrl = '';
+	}
+	$scope.updatePhotoUrl = function(photoUrl){ //update place photo URL
+		placeRef.update({
+			photoUrl: photoUrl,
+		});
+		$scope.photoUrl = ""; //reset the input fields
 	}
 
 });

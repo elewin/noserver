@@ -1,8 +1,8 @@
-angular.module('reviewer').controller('placeListCtrl', function(placeListRef, $scope, $firebaseArray) {
+angular.module('reviewer').controller('placeListCtrl', function(placeListRef, latestReviewRef, $scope, $firebaseArray) {
 
 
 	$scope.placeList = $firebaseArray(placeListRef);
-
+	$scope.latestReview = $firebaseArray(latestReviewRef);
 
 	$scope.placeList.$loaded().then(function(placeList) { //load the list
 	});
@@ -19,5 +19,5 @@ angular.module('reviewer').controller('placeListCtrl', function(placeListRef, $s
 		});
 		$scope.newPlaceName = "";
 	};
-
+	
 });

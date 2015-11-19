@@ -16,6 +16,10 @@ angular.module('reviewer').service('placeService', function(firebaseUrl, Firebas
 		  return new Firebase(firebaseUrl.url+'/placeList/'+placeId+'/dishes/'+dishId);
 	};
 
+	this.getLatestReview = function(){
+		return new Firebase(firebaseUrl.url+'/placeList/latestReview');
+	};
+
 	/// https://www.firebase.com/docs/web/guide/retrieving-data.html
 	this.getTopDishesObj = function(placeId, num){ //return an object of the the highest num rated dishs
 		var ref = new Firebase(firebaseUrl.url+'/placeList/'+$stateParams.placeId+'/dishes/');
